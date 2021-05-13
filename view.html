@@ -2,18 +2,23 @@
 <html lang="en">
 <head>
      <script src="view.js"></script>
+     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Document</title>
     
 </head>
-<body>
+<body style="background-color:rgb(196, 247, 255)"><br> <center><h1>COVID VACCINE TRACKER</h1><br><br>
     <h1>Find Vaccine In Kollam District </h1>
     <button type="button" id ="klm" class="btn btn-success"onclick="kollamclick(298)" >FIND</button>
-    <h1>Find Vaccine In Trivandrum District </h1>
-    <button type="button" class="btn btn-success" onclick="kollamclick(296)">FIND</button>
+    <!-- <h1>Find Vaccine In Trivandrum District </h1>
+    <button type="button" id ="tvm" class="btn btn-success" onclick="kollamclick(296)">FIND</button> -->
+    <div id="snackbar">vaccine available</div>
+    <div id="snackbar2">vaccine not available,will try to fetch after 10sec</div>
+</center>
 </body>
 </html>

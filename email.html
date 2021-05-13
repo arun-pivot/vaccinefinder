@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="view.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>.box{
+        width: 300px;
+        padding: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: rgb(95, 166, 233);
+        text-align: center;
+        
+    }
+    </style>
+    <title>Email</title>
+    
+</head>
+<body style="background-color: rgb(251, 205, 255);">
+    <!-- <form class="box" action="view.html" method="POST">
+        <h1>
+            Login
+        </h1>
+        <input type="email" name="" placeholder="Enter email" id="email" required>
+        <input type="submit" value="submit" onclick="validate()"> 
+    </form> -->
+
+
+    <form>
+        <div class="form-group" action="view.html" method="POST">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name=""  id="email" required aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <button type="submit" class="btn btn-primary" value="submit" onclick="validate()">Submit</button>
+      </form>
+</body>
+</html>
