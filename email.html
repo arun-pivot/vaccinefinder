@@ -4,40 +4,116 @@
     <script src="view.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>.box{
-        width: 300px;
-        padding: 30px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background: rgb(95, 166, 233);
-        text-align: center;
-        
-    }
+    <style>
+        .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #ffffff;
+  padding: 10px;
+}
     </style>
-    <title>Email</title>
+    <title>COVID VACCINE TRACKER</title>
     
 </head>
-<body style="background-color: rgb(251, 205, 255);">
-    <!-- <form class="box" action="view.html" method="POST">
-        <h1>
+<body style="background-color: blanchedalmond;" >
+
+<div class="center">
+    <center><h1>COVID VACCINE TRACKER</h1>
+    <div class="card" >
+
+    <form action="view.html">
+        <div class="form-group">
+          <label  >Email address</label>
+          <input type="email" class="form-control" id="email"placeholder="name@example.com" onchange="setemail()">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select State</label>
+          <select class="form-control" name="State"  placeholder="State" id="state" >
+            <option value="Kerala">Kerala</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select District</label>
+            <select class="form-control" name="District" id="district" required onchange="setDis()">
+                <option disabled selected value> -- select an option -- </option>
+                <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                <option value="Kollam">Kollam</option>
+                <option value="Alappuzha">Alappuzha</option>
+                <option value="Pathanamthitta">Pathanamthitta</option>
+                <option value="Kottayam">Kottayam</option>
+                <option value="Idukki">Idukki</option>
+                <option value="Ernakulam">Ernakulam</option>
+                <option value="Thrissur">Thrissur</option>
+                <option value="Palakkad">Palakkad</option>
+                <option value="Malappuram">Malappuram</option>
+                <option value="Kozhikode">Kozhikode</option>
+                <option value="Wayanad">Wayanad</option>
+                <option value="Kannur">Kannur</option>
+                <option value="Kasargod">Kasargod</option>
+            </select>
+          </div>
+   
+ 
+          <button type="button submit" class="btn btn-success"  value="submit">Success</button>
+        
+      </form>
+    </center>
+
+      </div>
+
+    </div>
+    <!-- <form class="box" action="view.html" method="POST" onsubmit="return validate()">
+        <h1 style="text-align: center;">
             Login
         </h1>
-        <input type="email" name="" placeholder="Enter email" id="email" required>
-        <input type="submit" value="submit" onclick="validate()"> 
+        <label for="state">Select State:</label>
+        <select name="State"  placeholder="State" id="state" required>
+        <option value="Kerala">Kerala</option>
+        </select><br><br>
+        <label for="district">Select District:</label>
+        <select name="District" id="district">
+        <option disabled selected value> -- select an option -- </option>
+        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+        <option value="Kollam">Kollam</option>
+        <option value="Alappuzha">Alappuzha</option>
+        <option value="Pathanamthitta">Pathanamthitta</option>
+        <option value="Kottayam">Kottayam</option>
+        <option value="Idukki">Idukki</option>
+        <option value="Ernakulam">Ernakulam</option>
+        <option value="Thrissur">Thrissur</option>
+        <option value="Palakkad">Palakkad</option>
+        <option value="Malappuram">Malappuram</option>
+        <option value="Kozhikode">Kozhikode</option>
+        <option value="Wayanad">Wayanad</option>
+        <option value="Kannur">Kannur</option>
+        <option value="Kasargod">Kasargod</option>
+        </select><br><br>
+        
+        <label for="date">Select State:</label>
+        <input type="date" id="date" name="Date" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="" placeholder="Enter email" id="email" required><br><br>
+        <input type="submit" value="submit">
     </form> -->
-
-
-    <form>
-        <div class="form-group" action="view.html" method="POST">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" name=""  id="email" required aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <button type="submit" class="btn btn-primary" value="submit" onclick="validate()">Submit</button>
-      </form>
 </body>
 </html>

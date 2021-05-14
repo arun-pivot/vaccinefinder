@@ -9,16 +9,53 @@
     <link rel="stylesheet" href="style.css"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    <title>Document</title>
+    <title>COVID VACCINE TRACKER</title>
+    <style>
+        a:link, a:visited {
+        background-color: #218838;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        }
+
+a:hover, a:active {
+  background-color: rgb(0, 255, 102);
+}
+    </style>
     
 </head>
-<body style="background-color:rgb(196, 247, 255)"><br> <center><h1>COVID VACCINE TRACKER</h1><br><br>
-    <h1>Find Vaccine In Kollam District </h1>
-    <button type="button" id ="klm" class="btn btn-success"onclick="kollamclick(298)" >FIND</button>
-    <!-- <h1>Find Vaccine In Trivandrum District </h1>
-    <button type="button" id ="tvm" class="btn btn-success" onclick="kollamclick(296)">FIND</button> -->
+<body style="background-color:bisque" onload="setHeading()"><br> <center><h1>COVID VACCINE TRACKER</h1><br><br>
+
+
+      
+    <h1 id ="heading">Find Vaccine In Selected District </h1>
+    <button type="button" id ="find" class="btn btn-success"onclick="find()" >FIND</button>
     <div id="snackbar">vaccine available</div>
-    <div id="snackbar2">vaccine not available,will try to fetch after 10sec</div>
+    <div id="snackbar2">vaccine not available</div>
+
+<center>
+    <table class="table table-striped" id ="data_table" style="display: none;">
+        <tr  class="bg-info">
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    
+        <tbody id="myTable">
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    
+                        <a class="btn btn-primary " href="https://www.cowin.gov.in/home" class="button">Book Now</a>
+                   
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </center>
 </center>
 </body>
 </html>
