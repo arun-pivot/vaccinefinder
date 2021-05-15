@@ -3,10 +3,10 @@ var date = d.getDate()
 var month = d.getMonth()+1
 var year = d.getFullYear()
 var stringdate = date+1+'-'+"0"+month+'-'+year
-console.log(stringdate)
 
+var distid 
 
-
+var downloadtimer
 function setHeading(){
   document.getElementById("data_table").style.display ="none"
   document.getElementById("heading").innerText = "Find Vaccine In "+localStorage.getItem('dist') +" District"
@@ -22,7 +22,21 @@ function setemail(){
   localStorage.setItem('email',email)
   console.log(email)
 }
+var timeleft;
+
+function showprogress(){
     
+    if(timeleft <= 0){
+        clearInterval(downloadtimer);
+        downloadtimer  = 0
+        click(distid)
+        // document.getElementById("countdown").innerText = "Finished";
+      } else {
+        document.getElementById("countdown").innerText = "Retrying after  " +timeleft + " seconds ";
+      }
+      timeleft -= 1;
+  }
+
 function find(){
  var h = localStorage.getItem('dist')
  console.log(h);
@@ -65,6 +79,12 @@ function find(){
 function buildTable(data){
   var table = document.getElementById('myTable')
 
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = "Center";
+  cell2.innerHTML = "Available Slots";
+
   for (var i = 0; i < data.length; i++){
     var row = `<tr>
             <td>${data[i].center}</td>
@@ -77,7 +97,21 @@ function buildTable(data){
   }
 }
 
+
 function click(params) {
+   
+    distid = params
+
+
+  var elmtTable = document.getElementById('data_table');
+  if(elmtTable.style.display == "block"){
+    var rowCount = elmtTable.rows.length;
+    for (var i=0; i < rowCount-1; i++) {
+      elmtTable.deleteRow(0);
+    }
+  
+  }
+ 
     console.log(params)
     /*var d = new Date()
     var date = d.getDate()
@@ -105,6 +139,7 @@ function click(params) {
          let flag = 0;
          let det =[];
          let i =0;
+         var element;
          for (let index = 0; index < centers.length; index++) {
               element = centers[index]
               //console.log(element);
@@ -118,6 +153,7 @@ function click(params) {
           }
           if (flag > 0)
            { 
+            timeleft = 10;
              console.log(det)
              document.getElementById("data_table").style.display ="block"
              buildTable(det)
@@ -137,14 +173,20 @@ function click(params) {
           sendEmail();
           var x = document.getElementById("snackbar");
           x.className = "show";
+
           setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
+
+  
+            downloadtimer=setInterval( showprogress,1000);
            }
           else{
+            timeleft = 30;
             var y = document.getElementById("snackbar2");
             y.className = "show";
             setTimeout(function(){ y.className = y.className.replace("show", ""); }, 1000);
-            
-            setTimeout(function(){ click(params); }, 10000);
+
+            downloadtimer=setInterval( showprogress,1000);
+            // setTimeout(function(){ click(params); }, 10000);
           }
         }
     };

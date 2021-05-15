@@ -1,16 +1,23 @@
 #snackbar {
+     position: absolute;
+     top: 12px;
+   
+     left: 25px;
     visibility: hidden;
-     min-width: 250px; 
-     margin-left: -125px; 
-     background-color: #333; 
+     min-width: 225px; 
+     margin-left: 10px; 
+     background-color: #e642f5; 
      color: #fff; 
      text-align: center; 
      border-radius: 2px; 
      padding: 16px; 
-     position: absolute; 
+    
      z-index: 1; 
-     left: 50%; 
-     bottom: 40px; 
+     
+
+
+
+    
      
    }
    
@@ -26,18 +33,20 @@
  
  
    #snackbar2 {
-     visibility: hidden; 
-     min-width: 250px;
-     margin-left: -125px; 
-     background-color: #333;
-     color: #fff; 
-     text-align: center; 
-     border-radius: 2px; 
-     padding: 16px; 
-     position: fixed; 
-     z-index: 1; 
-     left: 50%; 
-     bottom: 30px; 
+    position: absolute;
+    top: 12px;
+  
+    left: 25px;
+   visibility: hidden;
+    min-width: 225px; 
+    margin-left: 10px; 
+    background-color: #e642f5; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px; 
+    padding: 16px; 
+   
+    z-index: 1; 
    }
    
    
@@ -49,7 +58,7 @@
    }
    
   
-   @-webkit-keyframes fadein {
+   /* @-webkit-keyframes fadein {
      from {bottom: 0; opacity: 0;}
      to {bottom: 30px; opacity: 1;}
    }
@@ -67,7 +76,7 @@
    @keyframes fadeout {
      from {bottom: 30px; opacity: 1;}
      to {bottom: 0; opacity: 0;}
-   }
+   } */
 .footer-heart{text-align:center;font-family: open sans, sans-serif; position: absolute;
   bottom: 0px;
   width: 100%;}
