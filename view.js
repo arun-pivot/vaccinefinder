@@ -2,12 +2,22 @@ var d = new Date()
 var date = d.getDate()
 var month = d.getMonth()+1
 var year = d.getFullYear()
-var stringdate = date+1+'-'+"0"+month+'-'+year
+var currentDate;
+var currentHour;
+
+var stringdate
+
 
 var distid 
 
 var downloadtimer
 function setHeading(){
+
+  if(document.getElementById("FIND")){
+    document.getElementById("FIND").disabled = false;
+  }
+  
+
   document.getElementById("data_table").style.display ="none"
   document.getElementById("heading").innerText = "Find Vaccine In "+localStorage.getItem('dist') +" District"
 }
@@ -82,13 +92,17 @@ function buildTable(data){
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+
   cell1.innerHTML = "Center";
-  cell2.innerHTML = "Available Slots";
+  cell2.innerHTML = "Dose1 Slots";
+  cell3.innerHTML = "Dose2 Slots";
 
   for (var i = 0; i < data.length; i++){
     var row = `<tr>
             <td>${data[i].center}</td>
-            <td>${data[i].capacity}</td>
+            <td>${data[i].dose1}</td>
+            <td>${data[i].dose2}</td>
          
           </tr>`
     table.innerHTML += row
@@ -101,7 +115,18 @@ function buildTable(data){
 function click(params) {
    
     distid = params
-
+  
+    document.getElementById("FIND").disabled = true;
+    currentDate = new Date();
+    currentHour = currentDate.getHours()
+    console.log(currentHour)
+    if(currentHour>13){
+       stringdate = date+1+'-'+"0"+month+'-'+year
+    }
+    else{
+       stringdate = date+'-'+"0"+month+'-'+year
+    }
+    document.getElementById("date").innerText = "Slot Date "+stringdate
 
   var elmtTable = document.getElementById('data_table');
   if(elmtTable.style.display == "block"){
@@ -145,7 +170,7 @@ function click(params) {
               //console.log(element);
               if(element.sessions[0].available_capacity > 0){
                   flag ++;
-                  det [i]= { center : element.name , capacity : element.sessions[0].available_capacity };
+                  det [i]= { center : element.name , dose1 : element.sessions[0].available_capacity_dose1,dose2 :element.sessions[0].available_capacity_dose2 };
                   //console.log(det)
                   i++;
                 } 
